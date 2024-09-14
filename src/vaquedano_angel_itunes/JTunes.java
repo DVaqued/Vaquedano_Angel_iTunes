@@ -23,10 +23,11 @@ public class JTunes {
     }
 
     public void addSong(int codigo, String nombre, double precio) {
-        if (searchSong(codigo) != null) {
+        if (searchSong(codigo) == null) { // Cambiado a != null
             for (int i = 0; i < songs.length; i++) {
                 if (songs[i] == null) {
                     songs[i] = new Song(codigo, nombre, precio);
+                    break; 
                 }
             }
         }
@@ -42,19 +43,22 @@ public class JTunes {
     }
 
     public String rateSong(int codigo, int cantidadEstrellas) {
-        if (searchSong(codigo) != null) {
-            s.addStars(cantidadEstrellas);
-            s.songRating();
-            return s.print();
+        Song song = searchSong(codigo);
+        if (song != null) {
+            song.addStars(cantidadEstrellas);
+            song.songRating();
+            return song.print();
         }
         return "El codigo de la cancion que ingresaste no existe.";
     }
 
     public String[] printSongs() {
-        String[] registeredSongs = new String[20];
-        for (int i = 0; i < songs.length; i++) {
-            if (songs[i] != null) {
-                registeredSongs[i] = songs[i].print();
+        String[] registeredSongs = new String[songs.length];
+        int index=0;
+        for (Song s: songs) {
+            if (s != null) {
+                registeredSongs[index]=s.print();
+                index++;
             }
         }
         return registeredSongs;

@@ -16,9 +16,9 @@ public class Song {
     private int sumaDeEstrellas = 0;
     private int cantidadReviews = 0;
 
-    public Song(){
+    public Song() {
     }
-    
+
     public Song(int codigo, String nombre, double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -29,18 +29,20 @@ public class Song {
 
     public void addStars(int stars) {
         if (stars >= 0 && stars <= 5) {
-            stars += sumaDeEstrellas;
+            sumaDeEstrellas += stars;
             cantidadReviews++;
         }
     }
 
     public double songRating() {
-        double rating;
-        rating = sumaDeEstrellas / cantidadReviews;
-        return rating;
+        if (cantidadReviews == 0) {
+        return 0;
     }
-        public String print() {
-        return codigo+" - "+nombre+" - "+precio+" - "+songRating();
+    return sumaDeEstrellas / cantidadReviews; 
+}
+
+    public String print() {
+        return codigo + " - " + nombre + " - " + precio + " - " + songRating();
     }
 
     public int getCodigo() {
@@ -54,5 +56,5 @@ public class Song {
     public double getPrecio() {
         return precio;
     }
-        
+
 }

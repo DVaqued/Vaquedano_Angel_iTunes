@@ -4,6 +4,8 @@
  */
 package vaquedano_angel_itunes;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author angel
@@ -42,6 +44,12 @@ public class cantidadCanciones extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ingrese la cantidad de Canciones:");
+
+        cantidadCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadCancionesActionPerformed(evt);
+            }
+        });
 
         registrar.setText("Registrar");
         registrar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,13 +130,21 @@ public class cantidadCanciones extends javax.swing.JFrame {
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         // TODO add your handling code here:
+        try{
         String cantidadRegistrada = cantidadCanciones.getText();
         int cantidadFinal = Integer.parseInt(cantidadRegistrada);
         JTunes jT = new JTunes(cantidadFinal);
         ventanaJTunes vJT=new ventanaJTunes();
         vJT.setVisible(true);
         this.dispose();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error!");
+        }
     }//GEN-LAST:event_registrarActionPerformed
+
+    private void cantidadCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadCancionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantidadCancionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,4 +190,6 @@ public class cantidadCanciones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
+
+
 }

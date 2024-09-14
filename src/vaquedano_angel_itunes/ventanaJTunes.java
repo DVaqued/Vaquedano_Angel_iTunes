@@ -145,7 +145,9 @@ public class ventanaJTunes extends javax.swing.JFrame {
 
     private void reseñarCanciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reseñarCanciónActionPerformed
         // TODO add your handling code here:
-
+        reseñarCanciones rC=new reseñarCanciones();
+        rC.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_reseñarCanciónActionPerformed
 
     private void imprimirCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirCancionesActionPerformed

@@ -165,7 +165,7 @@ public class añadirCanciones extends javax.swing.JFrame {
 
     private void registarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registarActionPerformed
         // TODO add your handling code here:
-
+        try{
         String cod1 = codigoCancion.getText();
         int codigoFinal = Integer.parseInt(cod1);
         String nombre = nombreCancion.getText();
@@ -179,6 +179,9 @@ public class añadirCanciones extends javax.swing.JFrame {
             ventanaJTunes vJT = new ventanaJTunes();
             vJT.setVisible(true);
             this.dispose();
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error!");
         }
     }//GEN-LAST:event_registarActionPerformed
 

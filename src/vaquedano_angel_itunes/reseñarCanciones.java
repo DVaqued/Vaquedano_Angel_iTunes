@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class reseñarCanciones extends javax.swing.JFrame {
 
     JTunes jT = new JTunes();
-    Song s= new Song();
+    Song s = new Song();
 
     /**
      * Creates new form añadirCanciones
@@ -35,6 +35,7 @@ public class reseñarCanciones extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        cerrar = new javax.swing.JButton();
         codigoCancion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -54,6 +55,15 @@ public class reseñarCanciones extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Reseñar Canciones");
 
+        cerrar.setBackground(new java.awt.Color(204, 204, 204));
+        cerrar.setForeground(new java.awt.Color(0, 0, 0));
+        cerrar.setText("Cerrar");
+        cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -63,7 +73,9 @@ public class reseñarCanciones extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel2)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(cerrar)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,6 +84,10 @@ public class reseñarCanciones extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(21, 21, 21))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cerrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         codigoCancion.setBackground(new java.awt.Color(204, 204, 204));
@@ -154,21 +170,30 @@ public class reseñarCanciones extends javax.swing.JFrame {
 
     private void registarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registarActionPerformed
         // TODO add your handling code here:
-
+        try{
         String cod1 = codigoCancion.getText();
         int codigoFinal = Integer.parseInt(cod1);
         String estrellas1 = estrellasCancion.getText();
         int estrellasFinal = Integer.parseInt(estrellas1);
         if (codigoCancion.getText().isEmpty() || estrellasCancion.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios para registrar la reseña.");
-        }else{
+        } else {
             s.addStars(estrellasFinal);
-            JOptionPane.showMessageDialog(null, "La cancion con codigo " + codigoFinal+" se ha añadido exitosamente!");
+            JOptionPane.showMessageDialog(null, "La cancion con codigo " + codigoFinal + " se ha añadido exitosamente!");
             ventanaJTunes vJT = new ventanaJTunes();
             vJT.setVisible(true);
             this.dispose();
         }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error!");
+        }
     }//GEN-LAST:event_registarActionPerformed
+
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
+        // TODO add your handling code here:
+        ventanaJTunes vJT = new ventanaJTunes();
+        vJT.setVisible(true);
+    }//GEN-LAST:event_cerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +232,7 @@ public class reseñarCanciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cerrar;
     private javax.swing.JTextField codigoCancion;
     private javax.swing.JTextField estrellasCancion;
     private javax.swing.JLabel jLabel1;
