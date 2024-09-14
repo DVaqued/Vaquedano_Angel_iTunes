@@ -82,6 +82,11 @@ public class ventanaJTunes extends javax.swing.JFrame {
         buscarCancion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         buscarCancion1.setForeground(new java.awt.Color(0, 0, 0));
         buscarCancion1.setText("Buscar Canción");
+        buscarCancion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarCancion1ActionPerformed(evt);
+            }
+        });
 
         imprimirCanciones.setBackground(new java.awt.Color(204, 204, 204));
         imprimirCanciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -156,6 +161,13 @@ public class ventanaJTunes extends javax.swing.JFrame {
         iC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_imprimirCancionesActionPerformed
+
+    private void buscarCancion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCancion1ActionPerformed
+        // TODO add your handling code here:
+        buscarCanciones bC=new buscarCanciones();
+        bC.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_buscarCancion1ActionPerformed
 
     /**
      * @param args the command line arguments
